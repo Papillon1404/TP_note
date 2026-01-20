@@ -1,5 +1,5 @@
 import requests
-
+from database import DatabaseManager
 url = "https://books.toscrape.com/"
 response = requests.get(url)
 html = response.text
