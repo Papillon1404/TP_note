@@ -1,15 +1,21 @@
 import requests
 from bs4 import BeautifulSoup
+import json
 
+url = "https://api.openbrewerydb.org/v1/breweries/search?query=Montana"
+params = {"per_page": 200}
 
-url = "https://www.openbrewerydb.org/breweries?query=Montana"
-response = requests.get(url)
-html = response.text
+response = requests.get(url, params)
+
+html = json.loads(response.text)
 
 if response.status_code != 200:
     print("Erreur :", response.status_code)
 
-site = BeautifulSoup(html, "html.parser")
-print (site) 
 
-#brasseries = site.find_all()
+brasseries = [D["name"] for D in html]
+villes = [D["city"] for D in html]
+types = [D["brewery_type"] for D in html]
+
+print(brasseries)
+
