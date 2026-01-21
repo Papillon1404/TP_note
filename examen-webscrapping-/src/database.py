@@ -21,7 +21,7 @@ class DatabaseManager:
         
         # on convertie les noms de colonne sous forme d'énumération de str
         noms_colonnes = str(colonnes[0])
-        for c in colonnes[1] : # on initialise à 1 pour l'ajout des virgules
+        for c in colonnes[1:] : # on initialise à 1 pour l'ajout des virgules
             noms_colonnes += ","+str(c)
         
         # on crée le nom et les colonnes de la table
@@ -67,11 +67,17 @@ class DatabaseManager:
         for n in colonne[1:] : 
             list_values += ","+str(n)
 
-        # execution de la commande SQL
-        self.cursor.execute("""INSERT INTO"""+nom+"""("""+colonnes_str+""") SELECT """+int(id)+"""
+        if id :
+        # execution de la commande SQL avec précision de la ligne
+            self.cursor.execute("""INSERT INTO"""+nom+"""("""+colonnes_str+""") SELECT """+int(id)+"""
         ("""+infos+""")
         """)
         
+        else :
+        # execution de la commande SQL avec précision de la ligne
+            self.cursor.execute("""INSERT INTO"""+nom+"""("""+colonnes_str+""") VAMUES 
+        ("""+infos+""")
+        """)
 
 
 
@@ -108,8 +114,3 @@ class DatabaseManager:
         request.fetchall()
 
 
-
-
-
-
-db = DatabaseManager("database.db")
