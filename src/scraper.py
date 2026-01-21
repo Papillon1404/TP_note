@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import json
 
 url = "https://api.openbrewerydb.org/v1/breweries/search?query=Montana"
-params = {"per_page": 200}
+params = {"per_page": 200} # on fait en sorte d'avoir tous les résultats (sinon on ne récupère pas toutes les brasseries)
 
 response = requests.get(url, params)
 
@@ -16,6 +16,4 @@ if response.status_code != 200:
 brasseries = [D["name"] for D in html]
 villes = [D["city"] for D in html]
 types = [D["brewery_type"] for D in html]
-
-print(brasseries)
 
