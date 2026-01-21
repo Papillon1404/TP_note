@@ -19,16 +19,16 @@ if response.status_code != 200:
     print("Erreur :", response.status_code)
 
 
-
 noms = [D["name"] for D in html]
 villes = [D["city"] for D in html]
 types = [D["brewery_type"] for D in html]
 
-db.creer_table('Brasseries du Montana', ['Nom de la brasserie', 'Ville', 'Type'])
+db.creer_table('Brasseries du Montana', ['Nom', 'Ville', 'Type'])
 
 for i in range(len(noms)) :
+    colonnes = ['Nom', 'Ville', 'Type']
     nom = noms[i]
     ville = villes[i]
     type = types[i]
-    db.inserer_ligne(nom, [ville, type])
+    db.inserer_donnees('Brasseries du Montana', colonnes, [nom, ville, type])
 
