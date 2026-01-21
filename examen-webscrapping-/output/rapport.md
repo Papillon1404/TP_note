@@ -19,4 +19,4 @@ On utilise ensuite dans la partie scraping certaines de ces méthodes, pour cré
 ## III - Analyse et visualisation
 
 On programme des fonctions utilisant la bibliothèque Pandas permettant d'exploiter les données de la base sous forme de dataframes.
-On s'intéresse notamment au nombre de brasseries de chaque type...
+On s'intéresse notamment au nombre de brasseries de chaque type, dans chaque ville ou encore la proportion de chaque type de brasserie dans une ville donnée.
