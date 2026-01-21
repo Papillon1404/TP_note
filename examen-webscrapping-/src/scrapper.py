@@ -24,4 +24,11 @@ noms = [D["name"] for D in html]
 villes = [D["city"] for D in html]
 types = [D["brewery_type"] for D in html]
 
-db.insert_
+db.creer_table(['Nom de la brasserie', 'Ville', 'Type'])
+
+for i in range(len(noms)) :
+    nom = noms[i]
+    ville = villes[i]
+    type = types[i]
+    db.inserer_ligne(nom, ville, type)
+
