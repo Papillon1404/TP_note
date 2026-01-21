@@ -9,7 +9,9 @@ cursor = conn.cursor()
 db = DatabaseManager("nom_bdd.db")
 
 url = "https://api.openbrewerydb.org/v1/breweries/search?query=Montana"
-params = {"per_page": 200} # on fait en sorte d'avoir tous les résultats (sinon on ne récupère pas toutes les brasseries)
+params = {"per_page": 200}
+# on fait en sorte d'avoir tous les résultats 
+# (sinon on ne récupère pas toutes les brasseries)
 
 response = requests.get(url, params)
 
